@@ -58,4 +58,9 @@ router.post("/login", async (req, res) => {
   });
 });
 
+router.get("/users", async (req, res) => {
+  const users = await User.find().populate("movies");
+  return res.json(users);
+});
+
 module.exports = router;
